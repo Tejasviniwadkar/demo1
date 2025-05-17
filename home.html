@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carousel Hero</title>
+  <link rel="stylesheet" href="style.css " />
+
+  <!-- Bootstrap 5.3.5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+
+<body style="padding-top: 70px;"> <!-- padding for topbar + navbar -->
+
+  <!-- Navbar (Fixed & Transparent) -->
+  <nav class="navbar navbar-expand-sm fixed-top navbar-light bg-transparent">
+
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <i class="text-danger bi bi-heart-pulse fs-2 me-2"></i>
+        <span class="fs-2 fw-bold text-dark">Medico.</span>
+      </a>
+
+      <!-- Toggler for mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible Menu -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#" id="HomeLink"><i
+                class="bi bi-house-heart-fill me-1"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-file-earmark-person me-1"></i>About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-capsule-pill me-1"></i>Services</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Dropdown</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Dropdown 1</a></li>
+              <li><a class="dropdown-item" href="#">Dropdown 2</a></li>
+              <li><a class="dropdown-item" href="#">Dropdown 3</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-person-add me-1"></i>Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-hospital me-1"></i>Department</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-person-lines-fill me-1"></i>Contact</a></li>
+
+          <!-- Login button - always visible on any screen -->
+          <li class="nav-item ms-sm-3 mt-2 mt-sm-0">
+            <a href="login.html" class="btn btn-primary fw-semibold w-100 w-sm-auto">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="alertPlaceholder" class="container mt-3"></div>
+
+
+
+  <!-- Hero Carousel -->
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="carousel-item-background" style="background-image: url('images/medico 1.jpg');"></div>
+        <div class="carousel-caption">
+          <h2>Welcome to Medico</h2>
+          <p>Your health is our priority</p>
+          <a href="#" class="btn btn-primary">Make an Appointment</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+       <div class="carousel-item-background" style="background-image: url('images/medico 2.jpg');"></div>
+        <div class="carousel-caption">
+          <h2>Our Experts</h2>
+          <p>We have the best doctors</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="carousel-item-background" style="background-image: url('images/medico 3.jpg');"></div>
+        <div class="carousel-caption">
+          <h2>Quality Care</h2>
+          <p>Providing excellent healthcare</p>
+          <a href="#" class="btn btn-primary">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+
+  <!-- Bootstrap 5.3.5 JS and Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js"></script>
+
+  <!-- Navbar Scroll Script -->
+  <script>
+    window.addEventListener('scroll', function () {
+      var navbar = document.querySelector('.navbar');
+      if (window.scrollY > 90) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const alertPlaceholder = document.getElementById('alertPlaceholder');
+      const homeLink = document.getElementById('homeLink');
+
+      homeLink.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Clear any existing alerts
+        alertPlaceholder.innerHTML = 'u are in homr page';
+
+        // Create a new alert div
+        const alertDiv = document.createElement('div');
+        alertDiv.className = 'alert alert-info alert-dismissible fade show';
+        alertDiv.role = 'alert';
+        alertDiv.innerHTML = `
+          <strong>Notice:</strong> You are already on the Home page.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        `;
+
+        // Append the alert to the placeholder
+        alertPlaceholder.appendChild(alertDiv);
+      });
+    });
+  </script>
+
+  <!-- Footer -->
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light pt-4 pb-3 mt-5">
+    <div class="container text-center">
+      <h5 class="fw-bold mb-2">Medico</h5>
+      <p class="mb-2">Your trusted partner in health and wellness.</p>
+
+      <div class="d-flex justify-content-center mb-3">
+        <a href="#" class="text-light me-3"><i class="bi bi-facebook fs-5"></i></a>
+        <a href="#" class="text-light me-3"><i class="bi bi-twitter fs-5"></i></a>
+        <a href="#" class="text-light me-3"><i class="bi bi-instagram fs-5"></i></a>
+        <a href="#" class="text-light"><i class="bi bi-linkedin fs-5"></i></a>
+      </div>
+
+      <div class="text-muted small">
+        Copyright &copy; <strong>Medico.</strong>. All Rights Reserved.<br />
+        <strong>Medico</strong> 2025. All rights reserved.<br />
+        <span class="text-light">Designed by <strong>medico.</strong></span>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+</body>
+
+</html>
